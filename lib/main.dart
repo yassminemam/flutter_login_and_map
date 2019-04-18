@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'signup.dart';
+import 'map.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,7 +11,8 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
-        '/signup': (BuildContext context) => new SignupPage()
+        '/signup': (BuildContext context) => new SignupPage(),
+        '/map': (BuildContext context) => new MapPage()
       },
       home: new MyHomePage(),
     );
@@ -104,20 +107,22 @@ class _MyHomePageState extends State<MyHomePage> {
                         shadowColor: Colors.greenAccent,
                         color: Colors.green,
                         elevation: 7.0,
-                        child: GestureDetector(
+                          child: GestureDetector(
+                            child: InkWell(
                           onTap: () {
                             Navigator.of(context).pushNamed('/map');
                           },
-                          child: Center(
-                            child: Text(
-                              'LOGIN',
-                              
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Montserrat'),
+                            child: Center(
+                              child: Text(
+                                'LOGIN',
+                                
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Montserrat'),
+                              ),
                             ),
-                          ),
+                        )
                         ),
                       ),
                     ),
